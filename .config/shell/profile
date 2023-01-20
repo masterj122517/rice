@@ -41,5 +41,6 @@ export AWT_TOOLKIT="MToolkit wmname LG3D"	#May have to install wmname
 export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 export SCRIPTS="$HOME/.local/bin"
 export DWM="$HOME/.local/src/dwm
-export SCREEN_MODE=ONE
-
+#export SCREEN_MODE=ONE
+# Start graphical server on user's current tty if not already running.
+[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
